@@ -209,24 +209,18 @@
       box-shadow: 0 0 0 48px rgba(255,255,255,.02), 0 0 0 96px rgba(255,255,255,.015);
     }
     .book-mark {
-      aspect-ratio: 4 / 5;
       max-width: 330px;
       width: 100%;
       margin: auto;
       border-radius: 18px;
+      overflow: hidden;
       border: 1px solid rgba(255,255,255,.16);
-      background:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(145deg, #25323a, #12171b);
-      background-size: 28px 28px, 28px 28px, auto;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      text-align: center;
-      box-shadow: 0 32px 80px rgba(0,0,0,.3);
+      box-shadow: 0 32px 80px rgba(0,0,0,.38);
+      position: relative;
+      z-index: 1;
+      background: #111;
     }
-    .book-mark span { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 3.3rem); line-height: .92; letter-spacing: -.045em; }
+    .book-mark img { display: block; width: 100%; height: auto; }
     .book-copy { position: relative; z-index: 1; }
     .book-copy .section-label { color: #b9cbd4; }
     .book-copy h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 5vw, 5rem); line-height: .95; margin: 14px 0 24px; font-weight: 600; letter-spacing: -.045em; }
@@ -373,12 +367,12 @@
     <section id="books">
       <div class="wrap">
         <div class="book-band">
-          <div class="book-mark" aria-hidden="true"><span>Book<br />of<br />Bones</span></div>
+          <div class="book-mark"><img src="book-cover.jpg" alt="Cover of Bones Beneath the Story: The Book of Bones — Book I: Touch the Rock by Shawn L. Gilbert" /></div>
           <div class="book-copy">
             <div class="section-label">Books &amp; publishing</div>
-            <h2>Book of Bones</h2>
-            <p>A compact philosophical artifact developed from conversation into a finished book in a single day — part essay, part field note, part experiment in what becomes possible when the friction between an idea and a finished object collapses.</p>
-            <p>The project also serves as a proof of concept for a broader publishing workflow connecting AI-assisted writing, editing, visual development, layout, and independent production.</p>
+            <h2>Bones Beneath the Story</h2>
+            <p>The Book of Bones — Book I: Touch the Rock. A compact collection of philosophical fiction and secular parables about staying attached to the world beneath the stories we tell about it.</p>
+            <p>Developed from conversation into a finished book in a single day, the project also became an experiment in what happens when the friction between an idea and a physical artifact collapses.</p>
             <span class="book-status">Independent project · Physical proof in progress</span>
           </div>
         </div>
