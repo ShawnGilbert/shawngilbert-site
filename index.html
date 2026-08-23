@@ -227,7 +227,10 @@
     .book-copy p { color: #c8cdd1; max-width: 610px; font-size: 1.07rem; }
     .book-status { display: inline-flex; margin-top: 16px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #d7dce0; font-size: .76rem; font-weight: 760; text-transform: uppercase; letter-spacing: .08em; }
 
-    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; }
+    .about-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 70px; align-items: start; }
+    .about-main { display: grid; grid-template-columns: minmax(150px, .48fr) 1.52fr; gap: 30px; align-items: start; }
+    .portrait { margin: 4px 0 0; border-radius: 24px; overflow: hidden; background: #ddd7cc; box-shadow: var(--shadow); aspect-ratio: 4 / 5; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 17%; display: block; transform: scale(1.02); }
     .about-copy h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 5vw, 4.7rem); line-height: 1; letter-spacing: -.04em; font-weight: 600; }
     .about-copy p { font-size: 1.08rem; color: #4c525a; max-width: 720px; }
     .cred-list { border-top: 1px solid var(--line); }
@@ -255,6 +258,7 @@
 
     @media (max-width: 900px) {
       .hero, .section-head, .book-band, .about-grid, .contact-card { grid-template-columns: 1fr; }
+      .about-main { grid-template-columns: 180px 1fr; }
       .hero { gap: 36px; padding-top: 64px; }
       .section-head { gap: 18px; }
       .project-grid { grid-template-columns: 1fr; }
@@ -268,6 +272,8 @@
       h1 { font-size: clamp(3.2rem, 18vw, 5rem); }
       section { padding: 68px 0; }
       .hero-panel, .project-card { padding: 24px; }
+      .about-main { grid-template-columns: 1fr; }
+      .portrait { width: min(72%, 280px); aspect-ratio: 1 / 1.12; }
       .footer-inner { flex-direction: column; }
     }
 
@@ -381,12 +387,17 @@
 
     <section id="about">
       <div class="wrap about-grid">
-        <div class="about-copy">
-          <div class="section-label">About Shawn</div>
-          <h2>A working life that arrived at AI from the long way around.</h2>
-          <p>I am an entrepreneur, project builder, writer, and longtime small-business operator. My background spans hands-on work, service businesses, facilities and operations, creative production, and now AI-enabled software and media experiments.</p>
-          <p>That mix matters to me. I am interested in technology, but I tend to evaluate it by whether it can survive contact with ordinary work: customers, budgets, broken equipment, deadlines, human behavior, and the endless small frictions between an idea and a finished result.</p>
-          <p>Today I use AI across writing, product development, media production, research, and speculative design while continuing to explore where these tools are genuinely useful — and where the human still has to carry the box.</p>
+        <div class="about-main">
+          <figure class="portrait">
+            <img src="shawn-headshot.png" alt="Portrait of Shawn L. Gilbert" />
+          </figure>
+          <div class="about-copy">
+            <div class="section-label">About Shawn</div>
+            <h2>A working life that arrived at AI from the long way around.</h2>
+            <p>I am an entrepreneur, project builder, writer, and longtime small-business operator. My background spans hands-on work, service businesses, facilities and operations, creative production, and now AI-enabled software and media experiments.</p>
+            <p>That mix matters to me. I am interested in technology, but I tend to evaluate it by whether it can survive contact with ordinary work: customers, budgets, broken equipment, deadlines, human behavior, and the endless small frictions between an idea and a finished result.</p>
+            <p>Today I use AI across writing, product development, media production, research, and speculative design while continuing to explore where these tools are genuinely useful — and where the human still has to carry the box.</p>
+          </div>
         </div>
 
         <div class="cred-list" aria-label="Experience highlights">
