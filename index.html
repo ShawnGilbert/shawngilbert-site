@@ -2,34 +2,433 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shawn L. Gilbert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Shawn L. Gilbert — creator, entrepreneur, author, and AI project developer working across technology, culture, publishing, and speculative media." />
+  <meta name="theme-color" content="#f4f1ea" />
+  <title>Shawn L. Gilbert — Creator, Entrepreneur, AI Project Developer</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
-      text-align: center;
-      padding: 60px;
+    :root {
+      --paper: #f4f1ea;
+      --paper-2: #ebe6db;
+      --ink: #171a1f;
+      --muted: #656b73;
+      --line: rgba(23, 26, 31, 0.14);
+      --card: rgba(255, 255, 255, 0.56);
+      --accent: #385e72;
+      --accent-dark: #223d4a;
+      --shadow: 0 20px 60px rgba(23, 26, 31, 0.08);
+      --radius: 24px;
+      --max: 1180px;
     }
-    a {
-      color: #0077cc;
-      display: block;
-      margin: 12px;
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 7%, rgba(56, 94, 114, .13), transparent 28%),
+        radial-gradient(circle at 8% 40%, rgba(143, 108, 70, .09), transparent 28%),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(244, 241, 234, .82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
       text-decoration: none;
-      font-size: 18px;
+      font-weight: 780;
+      letter-spacing: -.02em;
+      font-size: 1.05rem;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 650;
+      padding: 9px 12px;
+      border-radius: 999px;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); background: rgba(255,255,255,.65); }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 72px;
+      align-items: center;
+      padding: 88px 0 72px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--accent); }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.7rem, 8vw, 7.4rem);
+      line-height: .91;
+      letter-spacing: -.055em;
+      margin: 20px 0 28px;
+      font-weight: 600;
+      max-width: 900px;
+    }
+
+    .hero-lede {
+      max-width: 760px;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      color: #40464e;
+      line-height: 1.55;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 760;
+      font-size: .92rem;
+      border: 1px solid var(--ink);
+    }
+    .button.primary { background: var(--ink); color: #fff; }
+    .button.secondary { background: rgba(255,255,255,.46); }
+    .button:hover { transform: translateY(-1px); }
+
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(160deg, rgba(255,255,255,.72), rgba(255,255,255,.30));
+      border: 1px solid rgba(255,255,255,.8);
+      box-shadow: var(--shadow);
+      border-radius: 36px;
+      padding: 34px;
+      overflow: hidden;
+    }
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(56,94,114,.18);
+      border-radius: 50%;
+      right: -90px;
+      bottom: -90px;
+      box-shadow: 0 0 0 34px rgba(56,94,114,.04), 0 0 0 68px rgba(56,94,114,.025);
+    }
+    .panel-kicker { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }
+    .hero-panel h2 { font-family: Georgia, "Times New Roman", serif; font-size: 2rem; line-height: 1.15; margin: 12px 0 18px; }
+    .hero-panel p { color: #4d535b; }
+    .principles { list-style: none; padding: 0; margin: 26px 0 0; position: relative; z-index: 1; }
+    .principles li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .principles strong { color: var(--accent-dark); }
+
+    section { padding: 92px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: end; margin-bottom: 42px; }
+    .section-label { color: var(--accent-dark); font-size: .8rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 850; }
+    .section-head h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: .98; letter-spacing: -.04em; font-weight: 600; margin: 10px 0 0; }
+    .section-head p { color: var(--muted); font-size: 1.06rem; max-width: 660px; margin-bottom: 6px; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card {
+      min-height: 305px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-decoration: none;
+      box-shadow: 0 10px 40px rgba(23,26,31,.045);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); background: rgba(255,255,255,.72); }
+    .project-top { display: flex; justify-content: space-between; gap: 24px; align-items: start; }
+    .project-num { color: var(--muted); font-size: .8rem; font-weight: 750; }
+    .project-arrow { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; }
+    .project-card h3 { font-family: Georgia, "Times New Roman", serif; font-size: 2rem; margin: 34px 0 10px; font-weight: 600; letter-spacing: -.025em; }
+    .project-card p { color: var(--muted); margin-bottom: 0; max-width: 46ch; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .tag { font-size: .75rem; font-weight: 750; padding: 6px 9px; border-radius: 999px; border: 1px solid var(--line); color: #4d535b; }
+
+    .book-band {
+      background: #1e252b;
+      color: #f8f5ef;
+      border-radius: 32px;
+      padding: clamp(34px, 6vw, 74px);
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 60px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .book-band::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+      right: -100px;
+      top: -120px;
+      box-shadow: 0 0 0 48px rgba(255,255,255,.02), 0 0 0 96px rgba(255,255,255,.015);
+    }
+    .book-mark {
+      aspect-ratio: 4 / 5;
+      max-width: 330px;
+      width: 100%;
+      margin: auto;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(145deg, #25323a, #12171b);
+      background-size: 28px 28px, 28px 28px, auto;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,.3);
+    }
+    .book-mark span { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 3.3rem); line-height: .92; letter-spacing: -.045em; }
+    .book-copy { position: relative; z-index: 1; }
+    .book-copy .section-label { color: #b9cbd4; }
+    .book-copy h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 5vw, 5rem); line-height: .95; margin: 14px 0 24px; font-weight: 600; letter-spacing: -.045em; }
+    .book-copy p { color: #c8cdd1; max-width: 610px; font-size: 1.07rem; }
+    .book-status { display: inline-flex; margin-top: 16px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #d7dce0; font-size: .76rem; font-weight: 760; text-transform: uppercase; letter-spacing: .08em; }
+
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; }
+    .about-copy h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 5vw, 4.7rem); line-height: 1; letter-spacing: -.04em; font-weight: 600; }
+    .about-copy p { font-size: 1.08rem; color: #4c525a; max-width: 720px; }
+    .cred-list { border-top: 1px solid var(--line); }
+    .cred { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .cred strong { display: block; margin-bottom: 4px; }
+    .cred span { color: var(--muted); font-size: .94rem; }
+
+    .contact-card {
+      padding: clamp(34px, 6vw, 68px);
+      border-radius: 32px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.95);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+    .contact-card h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -.04em; font-weight: 600; margin-bottom: 14px; }
+    .contact-card p { color: var(--muted); margin: 0; max-width: 650px; }
+    .contact-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+
+    @media (max-width: 900px) {
+      .hero, .section-head, .book-band, .about-grid, .contact-card { grid-template-columns: 1fr; }
+      .hero { gap: 36px; padding-top: 64px; }
+      .section-head { gap: 18px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .contact-links { justify-content: flex-start; }
+      .nav-links a:not(:last-child) { display: none; }
+    }
+
+    @media (max-width: 580px) {
+      .wrap { width: min(calc(100% - 26px), var(--max)); }
+      .nav { min-height: 62px; }
+      h1 { font-size: clamp(3.2rem, 18vw, 5rem); }
+      section { padding: 68px 0; }
+      .hero-panel, .project-card { padding: 24px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Shawn L. Gilbert home">Shawn L. Gilbert</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#books">Books</a>
+        <a href="#about">About</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
 
-  <h1>Shawn L. Gilbert</h1>
-  <p>Observer of AI, culture, and human systems.</p>
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Creator · Entrepreneur · AI Project Developer</div>
+        <h1>Shawn L.<br />Gilbert</h1>
+        <p class="hero-lede">I build projects at the intersection of artificial intelligence, culture, business, publishing, and speculative world-building — turning ideas into systems, media, and things people can actually use.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore selected work</a>
+          <a class="button secondary" href="#about">About Shawn</a>
+        </div>
+      </div>
 
-  <h2>Links</h2>
-  <a href="https://tecknowshaman.com">Tecknow Shaman</a>
-  <a href="https://eidomancer.com">Eidomancer</a>
-  <a href="https://youtube.com/@tecnoblix">YouTube</a>
-  <a href="https://tecknowshaman.com">Projects Hub</a>
+      <aside class="hero-panel" aria-label="Working approach">
+        <div class="panel-kicker">Working approach</div>
+        <h2>Use new tools without losing the human point of view.</h2>
+        <p>My work is less about chasing a single technology than learning how emerging tools can extend human judgment, creativity, and coordination.</p>
+        <ul class="principles">
+          <li><strong>01</strong><span>Build the smallest useful version, then learn from reality.</span></li>
+          <li><strong>02</strong><span>Treat AI as a collaborator and force multiplier, not a substitute for judgment.</span></li>
+          <li><strong>03</strong><span>Keep one foot in practical operations and one in speculative possibility.</span></li>
+        </ul>
+      </aside>
+    </div>
 
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Selected work</div>
+            <h2>Projects with different jobs.</h2>
+          </div>
+          <p>Some projects explain the world. Some build a world. Some are experiments in how AI can help people interpret information, make media, or move an idea from conversation into reality.</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card" href="https://eidomancer.com" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="project-top"><span class="project-num">01 / AI + interpretation</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+              <h3>Eidomancer</h3>
+              <p>An interpretive layer for general AI: a philosophy-driven lens that refracts questions, transcripts, data, and lived experience into useful forms such as cards, character sheets, echoes, and artifacts.</p>
+            </div>
+            <div class="tags"><span class="tag">AI systems</span><span class="tag">Product design</span><span class="tag">World-building</span></div>
+          </a>
+
+          <a class="project-card" href="https://tecknowshaman.com" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="project-top"><span class="project-num">02 / Creative world</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+              <h3>Tecknow Shaman</h3>
+              <p>A growing creative world built from essays, songs, images, books, philosophy, and artifacts — an ongoing exploration of what it feels like to live through accelerating technological change.</p>
+            </div>
+            <div class="tags"><span class="tag">Writing</span><span class="tag">Music</span><span class="tag">Publishing</span><span class="tag">AI media</span></div>
+          </a>
+
+          <a class="project-card" href="https://youtube.com/@tecnoblix" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="project-top"><span class="project-num">03 / Commentary</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+              <h3>Tecnoblix</h3>
+              <p>Video commentary about AI, technology, culture, economics, and the awkward transition between the world people learned to navigate and the one arriving underneath it.</p>
+            </div>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Analysis</span><span class="tag">Culture</span></div>
+          </a>
+
+          <article class="project-card">
+            <div>
+              <div class="project-top"><span class="project-num">04 / Experimental media</span><span class="project-arrow" aria-hidden="true">◎</span></div>
+              <h3>Entropy Imp</h3>
+              <p>An experimental virtual-character identity for more playful, embodied forms of commentary and performance — currently evolving alongside better real-time avatar and tracking tools.</p>
+            </div>
+            <div class="tags"><span class="tag">Virtual character</span><span class="tag">Real-time media</span><span class="tag">R&amp;D</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="books">
+      <div class="wrap">
+        <div class="book-band">
+          <div class="book-mark" aria-hidden="true"><span>Book<br />of<br />Bones</span></div>
+          <div class="book-copy">
+            <div class="section-label">Books &amp; publishing</div>
+            <h2>Book of Bones</h2>
+            <p>A compact philosophical artifact developed from conversation into a finished book in a single day — part essay, part field note, part experiment in what becomes possible when the friction between an idea and a finished object collapses.</p>
+            <p>The project also serves as a proof of concept for a broader publishing workflow connecting AI-assisted writing, editing, visual development, layout, and independent production.</p>
+            <span class="book-status">Independent project · Physical proof in progress</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <div class="section-label">About Shawn</div>
+          <h2>A working life that arrived at AI from the long way around.</h2>
+          <p>I am an entrepreneur, project builder, writer, and longtime small-business operator. My background spans hands-on work, service businesses, facilities and operations, creative production, and now AI-enabled software and media experiments.</p>
+          <p>That mix matters to me. I am interested in technology, but I tend to evaluate it by whether it can survive contact with ordinary work: customers, budgets, broken equipment, deadlines, human behavior, and the endless small frictions between an idea and a finished result.</p>
+          <p>Today I use AI across writing, product development, media production, research, and speculative design while continuing to explore where these tools are genuinely useful — and where the human still has to carry the box.</p>
+        </div>
+
+        <div class="cred-list" aria-label="Experience highlights">
+          <div class="cred"><strong>Small-business ownership &amp; operations</strong><span>Long-term experience with day-to-day operations, finances, facilities, customer-facing services, and practical decision-making.</span></div>
+          <div class="cred"><strong>AI project development</strong><span>Concept development, prototyping, prompt and workflow design, product architecture, publishing pipelines, and experimentation with generative media.</span></div>
+          <div class="cred"><strong>Writing &amp; independent publishing</strong><span>Essays, philosophical artifacts, books, song concepts, visual direction, and cross-media creative development.</span></div>
+          <div class="cred"><strong>Hands-on problem solving</strong><span>A career shaped as much by physical systems and operations as by software — useful training for separating elegant ideas from workable ones.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect">
+      <div class="wrap">
+        <div class="contact-card">
+          <div>
+            <div class="section-label">Connect / explore</div>
+            <h2>Professional on the front porch.<br />Stranger rooms farther in.</h2>
+            <p>For project work, collaboration, professional context, or a deeper look at the experiments, these are the main doors.</p>
+          </div>
+          <div class="contact-links">
+            <a class="button primary" href="https://github.com/ShawnGilbert" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="button secondary" href="https://youtube.com/@tecnoblix" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+            <a class="button secondary" href="https://tecknowshaman.com" target="_blank" rel="noopener noreferrer">Tecknow Shaman ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Shawn L. Gilbert</span>
+      <span>Built as a lightweight static site. No trackers. No framework required.</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
